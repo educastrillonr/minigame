@@ -1,0 +1,15 @@
+$pad-top-left-color: green;
+$pad-top-right-color: red;
+$pad-bottom-left-color: blue;
+$pad-bottom-right-color: yellow;
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-transform: uppercase;
+}
