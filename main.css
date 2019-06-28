@@ -1,11 +1,84 @@
+#pad-bottom-right, #pad-bottom-left, #pad-top-right, #pad-top-left {
+  background: white;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  background: black;
+  min-width: 100vw;
+}
+
 h1 {
   text-transform: uppercase;
+  text-align: center;
+  color: white;
+}
+
+#gamepad-wrapper {
+  min-width: 500px;
+  min-height: 500px;
+  background: black;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#control-pad {
+  min-width: 225px;
+  min-height: 225px;
+  background: #585858;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+}
+
+#pad-top-left {
+  background: green;
+  top: 8%;
+  left: 8%;
+  border-radius: 260px 10px 160px 10px;
+}
+
+#pad-top-right {
+  background: red;
+  top: 8%;
+  right: 8%;
+  border-radius: 10px 260px 10px 160px;
+}
+
+#pad-bottom-left {
+  background: blue;
+  bottom: 8%;
+  left: 8%;
+  border-radius: 10px 160px 10px 260px;
+}
+
+#pad-bottom-right {
+  background: yellow;
+  bottom: 8%;
+  right: 8%;
+  border-radius: 160px 10px 260px 10px;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -2,7 +2,23 @@ $pad-top-left-color: green;
 $pad-top-right-color: red;
 $pad-bottom-left-color: blue;
 $pad-bottom-right-color: yellow;
+$gamepad-main-color: black;
+$control-pad-color: rgb(88, 88, 88);
+$primary-color:black;
+$header-font-color: white;
+$gamepad-diameter: 500px;
+$pad-button-position: 8%;
 
+%pad-common {
+    // min-width: $gamepad-diameter / 2.5;
+    // min-height: $gamepad-diameter / 2.5;
+    // border-radius: 10px 260px 10px 160px;
+    background: $header-font-color;
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    // z-index: 1;
+}
 
 * {
     padding: 0;
@@ -10,6 +26,79 @@ $pad-bottom-right-color: yellow;
     box-sizing: border-box;
 }
 
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    // flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    background: $primary-color;
+    min-width: 100vw;
+}
+
 h1 {
     text-transform: uppercase;
+    text-align: center;
+    color: $header-font-color;
+}
+
+#gamepad-wrapper {
+    min-width: $gamepad-diameter;
+    min-height: $gamepad-diameter;
+    background: $gamepad-main-color;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+#control-pad {
+    min-width: $gamepad-diameter * 0.45;
+    min-height: $gamepad-diameter * 0.45;
+    background: $control-pad-color;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+}
+
+#pad-top-left {
+    @extend %pad-common;
+    background: $pad-top-left-color;
+    top: $pad-button-position;
+    left: $pad-button-position;
+    border-radius: 260px 10px 160px 10px;
+}
+
+#pad-top-right {
+    @extend %pad-common;
+    background: $pad-top-right-color;
+    top: $pad-button-position;
+    right: $pad-button-position;
+    border-radius: 10px 260px 10px 160px;
+}
+
+#pad-bottom-left {
+    @extend %pad-common;
+    background: $pad-bottom-left-color;
+    bottom:$pad-button-position;
+    left: $pad-button-position;
+    border-radius: 10px 160px 10px 260px;
+}
+
+#pad-bottom-right {
+    @extend %pad-common;
+    background: $pad-bottom-right-color;
+    bottom: $pad-button-position;
+    right: $pad-button-position;
+    border-radius: 160px 10px 260px 10px;
 }
