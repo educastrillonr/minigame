@@ -34,23 +34,38 @@ h1 {
 }
 
 #gamepad-wrapper {
-  min-width: 500px;
-  min-height: 500px;
+  min-width: 400px;
+  min-height: 400px;
   background: black;
   border-radius: 50%;
   position: relative;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 
 #control-pad {
-  min-width: 225px;
-  min-height: 225px;
+  top: 104px;
+  bottom: 104px;
+  left: 104px;
+  right: 104px;
+  position: absolute;
   background: #585858;
   border-radius: 50%;
-  position: absolute;
   z-index: 1;
+}
+
+#start-button {
+  top: 176px;
+  bottom: 176px;
+  left: 152px;
+  right: 152px;
+  position: absolute;
+  background: red;
+  border-radius: 44%;
+  z-index: 2;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #pad-top-left {

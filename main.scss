@@ -6,18 +6,23 @@ $gamepad-main-color: black;
 $control-pad-color: rgb(88, 88, 88);
 $primary-color:black;
 $header-font-color: white;
-$gamepad-diameter: 500px;
+$start-button-color: white;
+$gamepad-diameter: 400px;
 $pad-button-position: 8%;
 
 %pad-common {
-    // min-width: $gamepad-diameter / 2.5;
-    // min-height: $gamepad-diameter / 2.5;
-    // border-radius: 10px 260px 10px 160px;
     background: $header-font-color;
     width: 40%;
     height: 40%;
     position: absolute;
-    // z-index: 1;
+}
+
+@mixin center-object($value, $value2) {
+    top: $gamepad-diameter * $value;
+    bottom: $gamepad-diameter * $value;
+    left: $gamepad-diameter * $value2;
+    right: $gamepad-diameter * $value2;
+    position: absolute;
 }
 
 * {
@@ -32,7 +37,6 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    // flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
 }
@@ -56,19 +60,28 @@ h1 {
     background: $gamepad-main-color;
     border-radius: 50%;
     position: relative;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
 }
 
 
 #control-pad {
-    min-width: $gamepad-diameter * 0.45;
-    min-height: $gamepad-diameter * 0.45;
+    @include center-object(0.26, 0.26);
     background: $control-pad-color;
     border-radius: 50%;
-    position: absolute;
     z-index: 1;
+}
+
+#start-button {
+    // all: unset;
+    @include center-object(0.44, 0.38);
+    background: red;
+    border-radius: 44%;
+    z-index: 2;
+    color: $start-button-color;
+    cursor: pointer;
+    // font-size: 110%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #pad-top-left {
