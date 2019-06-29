@@ -58,7 +58,7 @@ h1 {
   left: 152px;
   right: 152px;
   position: absolute;
-  background: red;
+  background: black;
   border-radius: 44%;
   z-index: 2;
   color: white;
@@ -66,6 +66,9 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#start-button:hover {
+  background: #333333;
 }
 
 #pad-top-left {

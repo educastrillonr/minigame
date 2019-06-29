@@ -6,7 +6,8 @@ $gamepad-main-color: black;
 $control-pad-color: rgb(88, 88, 88);
 $primary-color:black;
 $header-font-color: white;
-$start-button-color: white;
+$secondary-font-color:white;
+$start-button-color: black;
 $gamepad-diameter: 400px;
 $pad-button-position: 8%;
 
@@ -73,15 +74,19 @@ h1 {
 #start-button {
     // all: unset;
     @include center-object(0.44, 0.38);
-    background: red;
+    background: $start-button-color;
     border-radius: 44%;
     z-index: 2;
-    color: $start-button-color;
+    color: $secondary-font-color;
     cursor: pointer;
     // font-size: 110%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &:hover {
+        background: lighten($start-button-color,20%);
+    }
 }
 
 #pad-top-left {
