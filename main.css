@@ -20,6 +20,13 @@ body {
   justify-content: space-around;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 header {
   position: absolute;
   top: 0;
@@ -97,6 +104,11 @@ h1 {
   bottom: 8%;
   right: 8%;
   border-radius: 160px 10px 260px 10px;
+}
+
+#result {
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 /*# sourceMappingURL=main.css.map */
