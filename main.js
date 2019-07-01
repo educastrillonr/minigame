@@ -11,7 +11,7 @@ let playerInput = [];
 let solution = [];
 let correct = false;
 
-function newGame() {
+const newGame = () => {
   startButton.removeEventListener("click", start);
   result.innerHTML = "&#8203";
   round = 1;
@@ -25,7 +25,7 @@ function newGame() {
   displaySequence();
 }
 
-function winGame() {
+const winGame = () => {
   result.innerHTML = "you win! :)";
   round = 0;
   playerInput = [];
@@ -38,7 +38,7 @@ function winGame() {
   startButton.addEventListener("click", start);
 }
 
-function loseGame() {
+const loseGame = () => {
   result.innerHTML = "you lose :(";
   correct = false;
   round = 0;
@@ -52,7 +52,7 @@ function loseGame() {
   startButton.addEventListener("click", start);
 }
 
-function generateSequence() {
+const generateSequence = () => {
   for (let index = 0; index < gameLength; index++) {
     let randomNumber = Math.floor(Math.random() * 4);
     // console.dir([playerInput]);
@@ -80,7 +80,7 @@ function generateSequence() {
   }
 }
 
-function displaySequence() {
+const displaySequence = () => {
   let i = 0;
   const interval = setInterval(() => {
     if (i === round) {
@@ -126,7 +126,7 @@ function displaySequence() {
   play();
 }
 
-function check() {
+const check = () => {
 //   console.dir([playerInput]);
 //   console.dir([solution]);
   if (
@@ -153,7 +153,7 @@ function check() {
   }
 }
 
-function play() {
+const play = () => {
   greenBtn.addEventListener(
     "click",
     (gb = event => {
