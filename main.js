@@ -16,41 +16,9 @@ const newGame = () => {
   result.innerHTML = "&#8203";
   round = 1;
   roundPrint.innerHTML = "Round : " + round;
-  playerInput = [];
-  solution = [];
-  correct = false;
-//   console.dir([playerInput]);
-//   console.dir([solution]);
   generateSequence();
   displaySequence();
-}
-
-const winGame = () => {
-  result.innerHTML = "you win! :)";
-  round = 0;
-  playerInput = [];
-  solution = [];
-  correct = false;
-  greenBtn.removeEventListener("click", gb);
-  redBtn.removeEventListener("click", rb);
-  blueBtn.removeEventListener("click", bb);
-  yellowBtn.removeEventListener("click", yb);
-  startButton.addEventListener("click", start);
-}
-
-const loseGame = () => {
-  result.innerHTML = "you lose :(";
-  correct = false;
-  round = 0;
-  playerInput = [];
-  solution = [];
-  correct = false;
-  greenBtn.removeEventListener("click", gb);
-  redBtn.removeEventListener("click", rb);
-  blueBtn.removeEventListener("click", bb);
-  yellowBtn.removeEventListener("click", yb);
-  startButton.addEventListener("click", start);
-}
+};
 
 const generateSequence = () => {
   for (let index = 0; index < gameLength; index++) {
@@ -78,7 +46,7 @@ const generateSequence = () => {
         break;
     }
   }
-}
+};
 
 const displaySequence = () => {
   let i = 0;
@@ -124,34 +92,33 @@ const displaySequence = () => {
     }
   }, 1000);
   play();
-}
+};
 
 const check = () => {
-//   console.dir([playerInput]);
-//   console.dir([solution]);
+  //   console.dir([playerInput]);
+  //   console.dir([solution]);
   if (
     playerInput[playerInput.length - 1] === solution[playerInput.length - 1]
   ) {
     correct = true;
   } else {
-    loseGame();
+    result.innerHTML = "you lose :(";
+    resetGame();
   }
 
   if (correct && playerInput.length === gameLength) {
-    winGame();
+    result.innerHTML = "you win! :)";
+    resetGame();
   } else if (correct && playerInput.length === round) {
     round++;
     roundPrint.innerHTML = "Round : " + round;
     playerInput = [];
-    greenBtn.removeEventListener("click", gb);
-    redBtn.removeEventListener("click", rb);
-    blueBtn.removeEventListener("click", bb);
-    yellowBtn.removeEventListener("click", yb);
+    disableButtons();
     // console.dir([playerInput]);
     // console.dir([solution]);
     displaySequence();
   }
-}
+};
 
 const play = () => {
   greenBtn.addEventListener(
@@ -199,7 +166,23 @@ const play = () => {
       check();
     })
   );
-}
+};
+
+const resetGame = () => {
+  round = 0;
+  playerInput = [];
+  solution = [];
+  correct = false;
+  disableButtons();
+  startButton.addEventListener("click", start);
+};
+
+const disableButtons = () => {
+  greenBtn.removeEventListener("click", gb);
+  redBtn.removeEventListener("click", rb);
+  blueBtn.removeEventListener("click", bb);
+  yellowBtn.removeEventListener("click", yb);
+};
 
 startButton.addEventListener(
   "click",

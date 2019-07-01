@@ -41,18 +41,18 @@ h1 {
 }
 
 #gamepad-wrapper {
-  min-width: 400px;
-  min-height: 400px;
+  min-width: 500px;
+  min-height: 500px;
   background: black;
   border-radius: 50%;
   position: relative;
 }
 
 #control-pad {
-  top: 104px;
-  bottom: 104px;
-  left: 104px;
-  right: 104px;
+  top: 130px;
+  bottom: 130px;
+  left: 130px;
+  right: 130px;
   position: absolute;
   background: #585858;
   border-radius: 50%;
@@ -60,10 +60,10 @@ h1 {
 }
 
 #start-button {
-  top: 176px;
-  bottom: 176px;
-  left: 152px;
-  right: 152px;
+  top: 220px;
+  bottom: 220px;
+  left: 190px;
+  right: 190px;
   position: absolute;
   background: black;
   border-radius: 44%;
