@@ -23,4 +23,4 @@ This is a minigame I have created to add features I want to practice. These feat
   
   
   
-  + Godmode includes increased speed and colours changing position
+  +Godmode includes increased speed and colours changing position
