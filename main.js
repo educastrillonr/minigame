@@ -114,6 +114,7 @@ const check = () => {
     roundPrint.innerHTML = "Round : " + round;
     playerInput = [];
     disableButtons();
+   
     // console.dir([playerInput]);
     // console.dir([solution]);
     displaySequence();
@@ -190,3 +191,6 @@ startButton.addEventListener(
     newGame();
   })
 );
+
+// const scores = JSON.parse(localStorage.getItem('scores'));
+// console.log(scores[0]);
