@@ -20,3 +20,7 @@ This is a minigame I have created to add features I want to practice. These feat
   
   - Refactor code
   - jQuery everything
+  
+  
+  
+  + Godmode includes increased speed and colours changing position
