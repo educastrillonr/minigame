@@ -208,5 +208,6 @@ const win = () => {
   // score.innerHTML = numberOfWins;
   // scoreBoard.appendChild(score);
   // updateScores();
+  // add local storage pls
   resetGame();
 };
