@@ -9,13 +9,13 @@ const main = document.getElementById("main");
 const scoreBoard =  document.getElementById("score-board");
 let round = 0;
 let numberOfWins = 0;
-const gameLength = 1;
+const gameLength = 6;
 let playerInput = [];
 let solution = [];
 let correct = false;
 
 const newGame = () => {
-  initialiseScores();
+  // initialiseScores();
   startButton.removeEventListener("click", start);
   result.innerHTML = "&#8203";
   round = 1;
@@ -173,7 +173,6 @@ const resetGame = () => {
   correct = false;
   disableButtons();
   startButton.addEventListener("click", start);
-  alert('barry');
 };
 
 const disableButtons = () => {
@@ -183,13 +182,13 @@ const disableButtons = () => {
   yellowBtn.removeEventListener("click", yb);
 };
 
-const initialiseScores = () => {
-  if (localStorage.getItem("numberOfWins") == undefined) {
-    updateScores();
-  } else {
-    numberOfWins = parseInt(localStorage.getItem("numberOfWins"));
-  }
-};
+// const initialiseScores = () => {
+//   if (localStorage.getItem("numberOfWins") == undefined) {
+//     updateScores();
+//   } else {
+//     numberOfWins = parseInt(localStorage.getItem("numberOfWins"));
+//   }
+// };
 
 startButton.addEventListener(
   "click",
@@ -198,16 +197,16 @@ startButton.addEventListener(
   })
 );
 
-const updateScores = () => {
-  localStorage.setItem("numberOfWins", numberOfWins);
-};
+// const updateScores = () => {
+//   localStorage.setItem("numberOfWins", numberOfWins);
+// };
 
 const win = () => {
   result.innerHTML = "you win! :)";
-  numberOfWins++;
-  let score = document.createElement("li");
-  score.innerHTML = numberOfWins;
-  scoreBoard.appendChild(score);
-  updateScores();
+  // numberOfWins++;
+  // let score = document.createElement("li");
+  // score.innerHTML = numberOfWins;
+  // scoreBoard.appendChild(score);
+  // updateScores();
   resetGame();
 };
