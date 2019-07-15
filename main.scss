@@ -80,7 +80,12 @@ main {
 
     #btn-container {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
+        align-items: center;
+
+        button {
+          @extend %btn-common;
+        }
     }
 }
 
