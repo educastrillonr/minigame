@@ -6,21 +6,22 @@
 }
 
 #difficulty-section #btn-container button {
-  display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid white;
-  margin: 0 0.3em 0.3em 0;
   border-radius: 0.12em;
-  box-sizing: border-box;
   text-decoration: none;
-  font-weight: 300;
+  font-weight: 600;
   color: white;
   text-align: center;
   transition: all 0.2s;
+  width: 15em;
+  height: 5em;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 3.36px;
 }
 #difficulty-section #btn-container button:hover {
   color: black;
   background-color: white;
+  cursor: pointer;
 }
 
 * {
@@ -49,17 +50,44 @@ main {
 #difficulty-section {
   width: 100%;
   height: 100%;
-  background: rgba(64, 67, 83, 0.8);
+  background: #0d2c54;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 }
 #difficulty-section #btn-container {
+  width: 100%;
+  height: 25%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
+#difficulty-section #btn-container #btn-easy {
+  background: #005f87;
+}
+#difficulty-section #btn-container #btn-easy:hover {
+  background: #00a6ed;
+}
+#difficulty-section #btn-container #btn-medium {
+  background: #395200;
+}
+#difficulty-section #btn-container #btn-medium:hover {
+  background: #7fb800;
+}
+#difficulty-section #btn-container #btn-hard {
+  background: #996c00;
+}
+#difficulty-section #btn-container #btn-hard:hover {
+  background: #ffb400;
+}
+#difficulty-section #btn-container #btn-godmode {
+  background: #a62d07;
+}
+#difficulty-section #btn-container #btn-godmode:hover {
+  background: #f6511d;
+}
+
 header {
   position: absolute;
   top: 0;
@@ -71,6 +99,14 @@ h1 {
   text-transform: uppercase;
   text-align: center;
   color: white;
+}
+
+h2 {
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  font-size: 48px;
+  letter-spacing: 4.8px;
 }
 
 #gamepad-wrapper {
@@ -112,28 +148,28 @@ h1 {
 }
 
 #pad-top-left {
-  background: green;
+  background: #7fb800;
   top: 8%;
   left: 8%;
   border-radius: 260px 10px 160px 10px;
 }
 
 #pad-top-right {
-  background: red;
+  background: #f6511d;
   top: 8%;
   right: 8%;
   border-radius: 10px 260px 10px 160px;
 }
 
 #pad-bottom-left {
-  background: blue;
+  background: #00a6ed;
   bottom: 8%;
   left: 8%;
   border-radius: 10px 160px 10px 260px;
 }
 
 #pad-bottom-right {
-  background: yellow;
+  background: #ffb400;
   bottom: 8%;
   right: 8%;
   border-radius: 160px 10px 260px 10px;
