@@ -5,7 +5,6 @@ const blueBtn = document.getElementById("pad-bottom-left");
 const yellowBtn = document.getElementById("pad-bottom-right");
 const result = document.getElementById("result");
 const roundPrint = document.getElementById("round");
-const main = document.getElementById("main");
 const scoreBoard =  document.getElementById("score-board");
 let round = 0;
 let numberOfWins = 0;
