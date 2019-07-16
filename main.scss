@@ -9,8 +9,8 @@ $primary-color: black;
 $header-font-color: white;
 $secondary-font-color: white;
 $start-button-color: black;
-$gamepad-diameter: 40vw;
-$gamepad-diameter-mobile: 95vw;
+$gamepad-diameter: 35vw;
+$gamepad-diameter-mobile: 100vw;
 $pad-button-position: 8%;
 $header-font-size: 48px;
 
@@ -28,8 +28,6 @@ $header-font-size: 48px;
   color: $secondary-font-color;
   text-align: center;
   transition: all 0.2s;
-  width: 15em;
-  height: 5em;
   font-size: $header-font-size * 0.5;
   text-transform: uppercase;
   letter-spacing: $header-font-size * 0.07;
@@ -66,11 +64,43 @@ body {
   background: $background-color;
 }
 main {
-  // height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-areas: 
+  "btn-section-one gamepad-wrapper btn-section-two";
+  
+  #gamepad-wrapper {
+    margin: 0 auto;
+    align-self: center;
+    grid-area: gamepad-wrapper;
+    width: $gamepad-diameter;
+    height: $gamepad-diameter;
+    background: $gamepad-main-color;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  button {
+    @extend %btn-common;
+  }
+
+  #btn-section-one {
+    grid-area: btn-section-one;
+  }
+
+  #btn-section-two {
+    grid-area: btn-section-two;
+    button {
+      background: $pad-bottom-left-color;
+      &:hover {
+        background: lighten($pad-bottom-left-color, 20%);
+      }
+    }
+  }
+
+  
 }
 
 #difficulty-section {
@@ -82,42 +112,44 @@ main {
   align-items: center;
 
   #btn-container {
-      width: 100%;
-      height: 25%;
+    width: 100%;
+    height: 25%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 
     button {
       @extend %btn-common;
+      width: 15em;
+      height: 5em;
     }
 
     #btn-easy {
-        background: darken($pad-bottom-left-color, 20%);
-        &:hover {
-            background: $pad-bottom-left-color;
-        }
+      background: darken($pad-bottom-left-color, 20%);
+      &:hover {
+        background: $pad-bottom-left-color;
+      }
     }
 
     #btn-medium {
-        background: darken($pad-top-left-color, 20%);
-        &:hover {
-            background: $pad-top-left-color;
-        }
+      background: darken($pad-top-left-color, 20%);
+      &:hover {
+        background: $pad-top-left-color;
+      }
     }
 
     #btn-hard {
-        background: darken($pad-bottom-right-color, 20%);
-        &:hover {
-            background: $pad-bottom-right-color;
-        }
+      background: darken($pad-bottom-right-color, 20%);
+      &:hover {
+        background: $pad-bottom-right-color;
+      }
     }
 
     #btn-godmode {
-        background: darken($pad-top-right-color, 20%);
-        &:hover {
-            background: $pad-top-right-color;
-        }
+      background: darken($pad-top-right-color, 20%);
+      &:hover {
+        background: $pad-top-right-color;
+      }
     }
   }
 }
@@ -141,14 +173,6 @@ h2 {
   color: $header-font-color;
   font-size: $header-font-size;
   letter-spacing: $header-font-size * 0.1;
-}
-
-#gamepad-wrapper {
-  min-width: $gamepad-diameter;
-  min-height: $gamepad-diameter;
-  background: $gamepad-main-color;
-  border-radius: 50%;
-  position: relative;
 }
 
 #control-pad {

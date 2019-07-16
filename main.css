@@ -5,20 +5,18 @@
   position: absolute;
 }
 
-#difficulty-section #btn-container button {
+#difficulty-section #btn-container button, main button {
   border-radius: 0.12em;
   text-decoration: none;
   font-weight: 600;
   color: white;
   text-align: center;
   transition: all 0.2s;
-  width: 15em;
-  height: 5em;
   font-size: 24px;
   text-transform: uppercase;
   letter-spacing: 3.36px;
 }
-#difficulty-section #btn-container button:hover {
+#difficulty-section #btn-container button:hover, main button:hover {
   color: black;
   background-color: white;
   cursor: pointer;
@@ -42,10 +40,33 @@ body {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-areas: "btn-section-one gamepad-wrapper btn-section-two";
+}
+main #gamepad-wrapper {
+  margin: 0 auto;
+  align-self: center;
+  grid-area: gamepad-wrapper;
+  width: 35vw;
+  height: 35vw;
+  background: black;
+  border-radius: 50%;
+  position: relative;
+}
+main #btn-section-one {
+  grid-area: btn-section-one;
+}
+main #btn-section-two {
+  grid-area: btn-section-two;
+}
+main #btn-section-two button {
+  background: #00a6ed;
+}
+main #btn-section-two button:hover {
+  background: #54ccff;
 }
 
 #difficulty-section {
@@ -62,6 +83,10 @@ main {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+#difficulty-section #btn-container button {
+  width: 15em;
+  height: 5em;
 }
 #difficulty-section #btn-container #btn-easy {
   background: #005f87;
@@ -109,19 +134,11 @@ h2 {
   letter-spacing: 4.8px;
 }
 
-#gamepad-wrapper {
-  min-width: 40vw;
-  min-height: 40vw;
-  background: black;
-  border-radius: 50%;
-  position: relative;
-}
-
 #control-pad {
-  top: 10.4vw;
-  bottom: 10.4vw;
-  left: 10.4vw;
-  right: 10.4vw;
+  top: 9.1vw;
+  bottom: 9.1vw;
+  left: 9.1vw;
+  right: 9.1vw;
   position: absolute;
   background: #0d2c54;
   border-radius: 50%;
@@ -129,10 +146,10 @@ h2 {
 }
 
 #start-button {
-  top: 17.6vw;
-  bottom: 17.6vw;
-  left: 15.2vw;
-  right: 15.2vw;
+  top: 15.4vw;
+  bottom: 15.4vw;
+  left: 13.3vw;
+  right: 13.3vw;
   position: absolute;
   background: black;
   border-radius: 44%;
@@ -182,23 +199,23 @@ h2 {
 
 @media only screen and (max-width: 768px) {
   #gamepad-wrapper {
-    min-width: 95vw;
-    min-height: 95vw;
+    min-width: 100vw;
+    min-height: 100vw;
   }
 
   #start-button {
-    top: 41.8vw;
-    bottom: 41.8vw;
-    left: 36.1vw;
-    right: 36.1vw;
+    top: 44vw;
+    bottom: 44vw;
+    left: 38vw;
+    right: 38vw;
     position: absolute;
   }
 
   #control-pad {
-    top: 24.7vw;
-    bottom: 24.7vw;
-    left: 24.7vw;
-    right: 24.7vw;
+    top: 26vw;
+    bottom: 26vw;
+    left: 26vw;
+    right: 26vw;
     position: absolute;
   }
 }
