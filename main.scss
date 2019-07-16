@@ -1,4 +1,4 @@
-$difficulty-menu-color: rgba(13, 44, 84, 1);
+$background-color: rgba(13, 44, 84, 1);
 $pad-top-left-color: rgb(127, 184, 0);
 $pad-top-right-color: rgb(246, 81, 29);
 $pad-bottom-left-color: rgb(0, 166, 237);
@@ -9,7 +9,8 @@ $primary-color: black;
 $header-font-color: white;
 $secondary-font-color: white;
 $start-button-color: black;
-$gamepad-diameter: 500px;
+$gamepad-diameter: 40vw;
+$gamepad-diameter-mobile: 95vw;
 $pad-button-position: 8%;
 $header-font-size: 48px;
 
@@ -21,7 +22,6 @@ $header-font-size: 48px;
 }
 
 %btn-common {
-//   border: 0.1em solid $secondary-font-color; 
   border-radius: 0.12em;
   text-decoration: none;
   font-weight: 600;
@@ -41,11 +41,11 @@ $header-font-size: 48px;
   }
 }
 
-@mixin center-object($value, $value2) {
-  top: $gamepad-diameter * $value;
-  bottom: $gamepad-diameter * $value;
-  left: $gamepad-diameter * $value2;
-  right: $gamepad-diameter * $value2;
+@mixin center-object($diameter, $value, $value2) {
+  top: $diameter * $value;
+  bottom: $diameter * $value;
+  left: $diameter * $value2;
+  right: $diameter * $value2;
   position: absolute;
 }
 
@@ -63,10 +63,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background: $background-color;
 }
 main {
   // height: 100%;
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -75,8 +76,7 @@ main {
 #difficulty-section {
   width: 100%;
   height: 100%;
-  background: $difficulty-menu-color;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
@@ -152,15 +152,15 @@ h2 {
 }
 
 #control-pad {
-  @include center-object(0.26, 0.26);
-  background: $control-pad-color;
+  @include center-object($gamepad-diameter, 0.26, 0.26);
+  background: $background-color;
   border-radius: 50%;
   z-index: 1;
 }
 
 #start-button {
   // all: unset;
-  @include center-object(0.44, 0.38);
+  @include center-object($gamepad-diameter, 0.44, 0.38);
   background: $start-button-color;
   border-radius: 44%;
   z-index: 2;
@@ -211,4 +211,17 @@ h2 {
 #result {
   font-weight: 600;
   text-transform: uppercase;
+}
+
+@media only screen and (max-width: 768px) {
+  #gamepad-wrapper {
+    min-width: $gamepad-diameter-mobile;
+    min-height: $gamepad-diameter-mobile;
+  }
+  #start-button {
+    @include center-object($gamepad-diameter-mobile, 0.44, 0.38);
+  }
+  #control-pad {
+    @include center-object($gamepad-diameter-mobile, 0.26, 0.26);
+  }
 }

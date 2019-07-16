@@ -38,10 +38,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background: #0d2c54;
 }
 
 main {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -50,8 +51,7 @@ main {
 #difficulty-section {
   width: 100%;
   height: 100%;
-  background: #0d2c54;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
@@ -110,29 +110,29 @@ h2 {
 }
 
 #gamepad-wrapper {
-  min-width: 500px;
-  min-height: 500px;
+  min-width: 40vw;
+  min-height: 40vw;
   background: black;
   border-radius: 50%;
   position: relative;
 }
 
 #control-pad {
-  top: 130px;
-  bottom: 130px;
-  left: 130px;
-  right: 130px;
+  top: 10.4vw;
+  bottom: 10.4vw;
+  left: 10.4vw;
+  right: 10.4vw;
   position: absolute;
-  background: #585858;
+  background: #0d2c54;
   border-radius: 50%;
   z-index: 1;
 }
 
 #start-button {
-  top: 220px;
-  bottom: 220px;
-  left: 190px;
-  right: 190px;
+  top: 17.6vw;
+  bottom: 17.6vw;
+  left: 15.2vw;
+  right: 15.2vw;
   position: absolute;
   background: black;
   border-radius: 44%;
@@ -178,6 +178,29 @@ h2 {
 #result {
   font-weight: 600;
   text-transform: uppercase;
+}
+
+@media only screen and (max-width: 768px) {
+  #gamepad-wrapper {
+    min-width: 95vw;
+    min-height: 95vw;
+  }
+
+  #start-button {
+    top: 41.8vw;
+    bottom: 41.8vw;
+    left: 36.1vw;
+    right: 36.1vw;
+    position: absolute;
+  }
+
+  #control-pad {
+    top: 24.7vw;
+    bottom: 24.7vw;
+    left: 24.7vw;
+    right: 24.7vw;
+    position: absolute;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
