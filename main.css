@@ -12,9 +12,9 @@
   color: white;
   text-align: center;
   transition: all 0.2s;
-  font-size: 24px;
+  width: 15em;
+  height: 5em;
   text-transform: uppercase;
-  letter-spacing: 3.36px;
 }
 #difficulty-section #btn-container button:hover, main button:hover {
   color: black;
@@ -43,7 +43,7 @@ main {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-areas: "btn-section-one gamepad-wrapper btn-section-two";
 }
 main #gamepad-wrapper {
@@ -58,9 +58,17 @@ main #gamepad-wrapper {
 }
 main #btn-section-one {
   grid-area: btn-section-one;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6em 3em;
 }
 main #btn-section-two {
   grid-area: btn-section-two;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6em 3em;
 }
 main #btn-section-two button {
   background: #00a6ed;
@@ -85,8 +93,8 @@ main #btn-section-two button:hover {
   align-items: center;
 }
 #difficulty-section #btn-container button {
-  width: 15em;
-  height: 5em;
+  font-size: 24px;
+  letter-spacing: 3.36px;
 }
 #difficulty-section #btn-container #btn-easy {
   background: #005f87;
@@ -198,24 +206,36 @@ h2 {
 }
 
 @media only screen and (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 5fr 1fr 1fr;
+    grid-template-areas: "gamepad-wrapper" "btn-section-one" "btn-section-two";
+  }
+  main #btn-section-one {
+    padding: 3em 3em 0 3em;
+  }
+  main #btn-section-two {
+    padding: 0 3em;
+  }
+
   #gamepad-wrapper {
-    min-width: 100vw;
-    min-height: 100vw;
+    min-width: 90vw;
+    min-height: 90vw;
   }
 
   #start-button {
-    top: 44vw;
-    bottom: 44vw;
-    left: 38vw;
-    right: 38vw;
+    top: 39.6vw;
+    bottom: 39.6vw;
+    left: 34.2vw;
+    right: 34.2vw;
     position: absolute;
   }
 
   #control-pad {
-    top: 26vw;
-    bottom: 26vw;
-    left: 26vw;
-    right: 26vw;
+    top: 23.4vw;
+    bottom: 23.4vw;
+    left: 23.4vw;
+    right: 23.4vw;
     position: absolute;
   }
 }

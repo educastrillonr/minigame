@@ -10,7 +10,7 @@ $header-font-color: white;
 $secondary-font-color: white;
 $start-button-color: black;
 $gamepad-diameter: 35vw;
-$gamepad-diameter-mobile: 100vw;
+$gamepad-diameter-mobile: 90vw;
 $pad-button-position: 8%;
 $header-font-size: 48px;
 
@@ -28,9 +28,9 @@ $header-font-size: 48px;
   color: $secondary-font-color;
   text-align: center;
   transition: all 0.2s;
-  font-size: $header-font-size * 0.5;
+  width: 15em;
+  height: 5em;
   text-transform: uppercase;
-  letter-spacing: $header-font-size * 0.07;
 
   &:hover {
     color: $primary-color;
@@ -67,10 +67,9 @@ main {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 6fr 1fr;
-  grid-template-areas: 
-  "btn-section-one gamepad-wrapper btn-section-two";
-  
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "btn-section-one gamepad-wrapper btn-section-two";
+
   #gamepad-wrapper {
     margin: 0 auto;
     align-self: center;
@@ -85,13 +84,20 @@ main {
   button {
     @extend %btn-common;
   }
-
   #btn-section-one {
     grid-area: btn-section-one;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6em 3em;
   }
 
   #btn-section-two {
     grid-area: btn-section-two;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6em 3em;
     button {
       background: $pad-bottom-left-color;
       &:hover {
@@ -99,8 +105,6 @@ main {
       }
     }
   }
-
-  
 }
 
 #difficulty-section {
@@ -120,8 +124,8 @@ main {
 
     button {
       @extend %btn-common;
-      width: 15em;
-      height: 5em;
+      font-size: $header-font-size * 0.5;
+      letter-spacing: $header-font-size * 0.07;
     }
 
     #btn-easy {
@@ -238,6 +242,22 @@ h2 {
 }
 
 @media only screen and (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 5fr 1fr 1fr;
+    grid-template-areas:
+      "gamepad-wrapper"
+      "btn-section-one"
+      "btn-section-two";
+
+    #btn-section-one {
+      padding: 3em 3em 0 3em;
+    } 
+    #btn-section-two {
+      padding: 0 3em;
+    }   
+  }
+
   #gamepad-wrapper {
     min-width: $gamepad-diameter-mobile;
     min-height: $gamepad-diameter-mobile;
