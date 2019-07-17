@@ -10,12 +10,10 @@
     <title>Simon minigame</title>
 </head>
 <body>
-    <!-- <header>
-        <h1>Simon Memory Minigame</h1>
-    </header> -->
     <main>
         <section id="gamepad-wrapper">
-            <div id="start-button">Start!</div>
+            <div onclick="newGame()" id="start-button">Start!</div>
+            <p></p>
             <div id="control-pad"></div>
             <div id="pad-top-left"></div>
             <div id="pad-top-right"></div>
@@ -23,23 +21,27 @@
             <div id="pad-bottom-right"></div>
         </section>
         <section id="btn-section-one">
-            <button>Change difficulty</button>
-            <button>Scores</button>
+            <button onclick="goToDifficultySection()">Change difficulty</button>
+            <button disabled>Scores</button>
         </section>
         <section id="btn-section-two">
-            <button>Tweet score!</button>
+            <button disabled>Tweet score!</button>
         </section>
     </main>
     <section id="difficulty-section">
         <h2>Choose your difficulty</h2>
         <section id="btn-container">
-            <button id="btn-easy">Easy</button>
-            <button id="btn-medium">Medium</button>
-            <button id="btn-hard">Hard</button>
-            <button id="btn-godmode">Godmode</button>
+            <button onclick="setEasy()" id="btn-easy">Easy</button>
+            <button onclick="setMedium()" id="btn-medium">Medium</button>
+            <button onclick="setHard()" id="btn-hard">Hard</button>
+            <button disabled onclick="setGodmode()" id="btn-godmode">Godmode</button>
         </section>
     </section>
 </body>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 <script src="main.js"></script>
 </html>
 
