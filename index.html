@@ -15,10 +15,10 @@
             <div onclick="newGame()" id="start-button">Start!</div>
             <p></p>
             <div id="control-pad"></div>
-            <button value="0" onclick="getPlayerbutton()" id="pad-top-left"></button>
-            <button value="1" onclick="getPlayerbutton()" id="pad-top-right"></button>
-            <button value="2" onclick="getPlayerbutton()" id="pad-bottom-left"></button>
-            <button value="3" onclick="getPlayerbutton()" id="pad-bottom-right"></button>
+            <button onclick="getPlayerInput(0)" id="pad-top-left"></button>
+            <button onclick="getPlayerInput(1)" id="pad-top-right"></button>
+            <button onclick="getPlayerInput(2)" id="pad-bottom-left"></button>
+            <button onclick="getPlayerInput(3)" id="pad-bottom-right"></button>
         </section>
         <section id="btn-section-one">
             <button onclick="goToDifficultySection()">Change difficulty</button>

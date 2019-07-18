@@ -12,16 +12,18 @@ const goToGame = () => {
   $("#difficulty-section").hide();
   $("main").show();
   $("#btn-container > button").prop("disabled", true)
-  $("#gamepad-wrapper > button").prop("disabled", true);
+  disablePlayerInput();
 };
 
 const goToDifficultySection = () => {
+  resetGame();
   $("main").hide();
   $("#difficulty-section").show();
   $("button").prop("disabled", false);
+  disablePlayerInput();
 };
 
-const setDifficulty = (level) => {
+const setDifficulty = level => {
   difficulty = level;
   goToGame();
 };
@@ -29,16 +31,18 @@ const setDifficulty = (level) => {
 const newGame = () => {
   $("#start-button").hide();
   addRound();
+};
+
+const addRound = () => {
+  playerInput = [];
+  solution.push(Math.floor(Math.random() * 4));
   $("#gamepad-wrapper > p").html("Round: " + solution.length);
   displaySequence();
   enablePlayerInput();
 };
 
-const addRound = () => {
-  solution.push(Math.floor(Math.random() * 4));
-};
-
 const displaySequence = () => {
+  disablePlayerInput();
   let i = 0;
   const interval = setInterval(() => {
     if (i === solution.length) {
@@ -62,20 +66,24 @@ const enablePlayerInput = () => {
   $("#gamepad-wrapper > button").prop("disabled", false);
 };
 
-const getPlayerInput = () => {
-  playerInput.push($("#gamepad-wrapper > button").val());
-  console.log(playerInput);
-  
+const disablePlayerInput = () => {
+  $("#gamepad-wrapper > button").prop("disabled", true);
+};
+
+const getPlayerInput = color => {
+  playerInput.push(color); 
+  flashColor(color);
   check();
 };
 
 const check = () => {
-  let correct =
-    playerInput[playerInput.length - 1] == solution[playerInput.length - 1];
+  let correct = playerInput[playerInput.length - 1] == solution[playerInput.length - 1];
 
   if (!correct) {
     alert('yu lost');
     resetGame();
+  } else if (correct && playerInput.length === solution.length) {
+    addRound();
   }
 };
 
