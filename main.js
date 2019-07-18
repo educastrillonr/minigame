@@ -11,32 +11,18 @@ const colorPads = [
 const goToGame = () => {
   $("#difficulty-section").hide();
   $("main").show();
-  $("input").prop("disabled", true);
+  $("#btn-container > button").prop("disabled", true)
+  $("#gamepad-wrapper > button").prop("disabled", true);
 };
 
 const goToDifficultySection = () => {
   $("main").hide();
   $("#difficulty-section").show();
-  $("input").prop("disabled", false);
+  $("button").prop("disabled", false);
 };
 
-const setDifficulty = () => {
-  switch ($("input[name='difficulty']").val()) {
-    case "easy":
-      difficulty = 0;
-      break;
-    case "medium":
-      difficulty = 1;
-      break;
-    case "hard":
-      difficulty = 2;
-      break;
-    case "godmode":
-      difficulty = 3;
-      break;
-  }
-  console.log(difficulty);
-  
+const setDifficulty = (level) => {
+  difficulty = level;
   goToGame();
 };
 
@@ -73,11 +59,11 @@ const flashColor = position => {
 };
 
 const enablePlayerInput = () => {
-  $("input[name='game-pads']").prop("disabled", false);
+  $("#gamepad-wrapper > button").prop("disabled", false);
 };
 
 const getPlayerInput = () => {
-  playerInput.push($("input[name='game-pads").val());
+  playerInput.push($("#gamepad-wrapper > button").val());
   console.log(playerInput);
   
   check();

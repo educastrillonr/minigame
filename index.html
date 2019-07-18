@@ -15,10 +15,10 @@
             <div onclick="newGame()" id="start-button">Start!</div>
             <p></p>
             <div id="control-pad"></div>
-            <input type="button" value="0" onclick="getPlayerInput()" id="pad-top-left">
-            <input type="button" value="1" onclick="getPlayerInput()" id="pad-top-right">
-            <input type="button" value="2" onclick="getPlayerInput()" id="pad-bottom-left">
-            <input type="button" value="3" onclick="getPlayerInput()" id="pad-bottom-right">
+            <button value="0" onclick="getPlayerbutton()" id="pad-top-left"></button>
+            <button value="1" onclick="getPlayerbutton()" id="pad-top-right"></button>
+            <button value="2" onclick="getPlayerbutton()" id="pad-bottom-left"></button>
+            <button value="3" onclick="getPlayerbutton()" id="pad-bottom-right"></button>
         </section>
         <section id="btn-section-one">
             <button onclick="goToDifficultySection()">Change difficulty</button>
@@ -31,10 +31,10 @@
     <section id="difficulty-section">
         <h2>Choose your difficulty</h2>
         <form id="btn-container">
-            <input type="button" value="easy" onclick="setDifficulty()" id="btn-easy">
-            <input type="button" value="medium" onclick="setDifficulty()" id="btn-medium">
-            <input type="button" value="hard" onclick="setDifficulty()" id="btn-hard">
-            <input type="button" value="godmode" onclick="setDifficulty()" id="btn-godmode">
+            <button onclick="setDifficulty(0)" id="btn-easy">easy</button>
+            <button onclick="setDifficulty(1)" id="btn-medium">medium</button>
+            <button onclick="setDifficulty(2)" id="btn-hard">hard</button>
+            <button onclick="setDifficulty(3)" id="btn-godmode">godmode</button>
         </form>
     </section>
 </body>
