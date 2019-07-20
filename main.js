@@ -1,4 +1,5 @@
 let difficulty;
+const difficultySpeeds = [1000, 700, 400, 300];
 let solution = [];
 let playerInput = [];
 const colorPads = [
@@ -11,7 +12,7 @@ const colorPads = [
 const goToGame = () => {
   $("#difficulty-section").hide();
   $("main").show();
-  $("#btn-container > button").prop("disabled", true)
+  $("#btn-container > button").prop("disabled", true);
   disablePlayerInput();
 };
 
@@ -36,7 +37,7 @@ const newGame = () => {
 const addRound = () => {
   playerInput = [];
   solution.push(Math.floor(Math.random() * 4));
-  $("#gamepad-wrapper > p").html("Round: " + solution.length);
+  $("#control-pad > p").html("Round: " + solution.length);
   displaySequence();
   enablePlayerInput();
 };
@@ -51,7 +52,7 @@ const displaySequence = () => {
       flashColor(solution[i]);
       i++;
     }
-  }, 1000);
+  }, difficultySpeeds[difficulty]);
 };
 
 const flashColor = position => {
@@ -59,7 +60,7 @@ const flashColor = position => {
   colorPads[position].css("background", "white");
   setTimeout(() => {
     colorPads[position].css("background", originalColor);
-  }, 200);
+  }, difficultySpeeds[difficulty]/5);
 };
 
 const enablePlayerInput = () => {
@@ -71,16 +72,17 @@ const disablePlayerInput = () => {
 };
 
 const getPlayerInput = color => {
-  playerInput.push(color); 
+  playerInput.push(color);
   flashColor(color);
   check();
 };
 
 const check = () => {
-  let correct = playerInput[playerInput.length - 1] == solution[playerInput.length - 1];
+  let correct =
+    playerInput[playerInput.length - 1] == solution[playerInput.length - 1];
 
   if (!correct) {
-    alert('yu lost');
+    alert("yu lost");
     resetGame();
   } else if (correct && playerInput.length === solution.length) {
     addRound();
@@ -88,11 +90,12 @@ const check = () => {
 };
 
 const resetGame = () => {
-    solution = [];
-    playerInput = [];
-    difficulty = null;
-    $("#start-button").show();
-    $("#gamepad-wrapper > p").html("");
-}
+  solution = [];
+  playerInput = [];
+  difficulty = null;
+  disablePlayerInput();
+  $("#start-button").show();
+  $("#control-pad > p").html("");
+};
 
 $("main").hide();
