@@ -5,6 +5,23 @@
   position: absolute;
 }
 
+#difficulty-section #btn-container button, main button {
+  border-radius: 0.12em;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  transition: all 0.2s;
+  width: 15em;
+  height: 5em;
+  text-transform: uppercase;
+}
+#difficulty-section #btn-container button:hover, main button:hover {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -12,19 +29,99 @@
 }
 
 body {
+  font-family: "Roboto", sans-serif;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background: #0d2c54;
 }
 
 main {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "btn-section-one gamepad-wrapper btn-section-two";
+}
+main #gamepad-wrapper {
+  margin: 0 auto;
+  align-self: center;
+  grid-area: gamepad-wrapper;
+  width: 35vw;
+  height: 35vw;
+  background: black;
+  border-radius: 50%;
+  position: relative;
+}
+main #btn-section-one {
+  grid-area: btn-section-one;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
+  padding: 6em 3em;
+}
+main #btn-section-two {
+  grid-area: btn-section-two;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6em 3em;
+}
+main #btn-section-two button {
+  background: #00a6ed;
+}
+main #btn-section-two button:hover {
+  background: #54ccff;
+}
+
+#difficulty-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#difficulty-section h2 {
+  margin: 0 auto;
+}
+#difficulty-section #btn-container {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#difficulty-section #btn-container button {
+  font-size: 24px;
+  letter-spacing: 3.36px;
+}
+#difficulty-section #btn-container #btn-easy {
+  background: #005f87;
+}
+#difficulty-section #btn-container #btn-easy:hover {
+  background: #00a6ed;
+}
+#difficulty-section #btn-container #btn-medium {
+  background: #395200;
+}
+#difficulty-section #btn-container #btn-medium:hover {
+  background: #7fb800;
+}
+#difficulty-section #btn-container #btn-hard {
+  background: #996c00;
+}
+#difficulty-section #btn-container #btn-hard:hover {
+  background: #ffb400;
+}
+#difficulty-section #btn-container #btn-godmode {
+  background: #a62d07;
+}
+#difficulty-section #btn-container #btn-godmode:hover {
+  background: #f6511d;
 }
 
 header {
@@ -40,67 +137,70 @@ h1 {
   color: white;
 }
 
-#gamepad-wrapper {
-  min-width: 500px;
-  min-height: 500px;
-  background: black;
-  border-radius: 50%;
-  position: relative;
+h2 {
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  font-size: 48px;
+  letter-spacing: 4.8px;
 }
 
 #control-pad {
-  top: 130px;
-  bottom: 130px;
-  left: 130px;
-  right: 130px;
+  top: 9.1vw;
+  bottom: 9.1vw;
+  left: 9.1vw;
+  right: 9.1vw;
   position: absolute;
-  background: #585858;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0d2c54;
   border-radius: 50%;
   z-index: 1;
 }
+#control-pad p {
+  font-size: 24px;
+  color: white;
+  text-transform: uppercase;
+}
 
 #start-button {
-  top: 220px;
-  bottom: 220px;
-  left: 190px;
-  right: 190px;
-  position: absolute;
   background: black;
-  border-radius: 44%;
   z-index: 2;
   color: white;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 40%;
 }
 #start-button:hover {
   background: #333333;
 }
 
 #pad-top-left {
-  background: green;
+  background: #7fb800;
   top: 8%;
   left: 8%;
   border-radius: 260px 10px 160px 10px;
 }
 
 #pad-top-right {
-  background: red;
+  background: #f6511d;
   top: 8%;
   right: 8%;
   border-radius: 10px 260px 10px 160px;
 }
 
 #pad-bottom-left {
-  background: blue;
+  background: #00a6ed;
   bottom: 8%;
   left: 8%;
   border-radius: 10px 160px 10px 260px;
 }
 
 #pad-bottom-right {
-  background: yellow;
+  background: #ffb400;
   bottom: 8%;
   right: 8%;
   border-radius: 160px 10px 260px 10px;
@@ -109,6 +209,44 @@ h1 {
 #result {
   font-weight: 600;
   text-transform: uppercase;
+}
+
+@media only screen and (max-width: 768px) {
+  main button, #difficulty-section #btn-container button {
+    width: 10em;
+    height: 4em;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 5fr 1fr 1fr;
+    grid-template-areas: "gamepad-wrapper" "btn-section-one" "btn-section-two";
+  }
+  main #btn-section-one {
+    padding: 0;
+    padding-top: 3em;
+  }
+  main #btn-section-two {
+    padding: 0 3em;
+  }
+
+  #gamepad-wrapper {
+    min-width: 90vw;
+    min-height: 90vw;
+  }
+
+  #control-pad {
+    top: 23.4vw;
+    bottom: 23.4vw;
+    left: 23.4vw;
+    right: 23.4vw;
+    position: absolute;
+  }
+
+  #btn-container {
+    flex-direction: column;
+    min-height: 60%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

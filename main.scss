@@ -1,134 +1,287 @@
-$pad-top-left-color: green;
-$pad-top-right-color: red;
-$pad-bottom-left-color: blue;
-$pad-bottom-right-color: yellow;
+$background-color: rgba(13, 44, 84, 1);
+$pad-top-left-color: rgb(127, 184, 0);
+$pad-top-right-color: rgb(246, 81, 29);
+$pad-bottom-left-color: rgb(0, 166, 237);
+$pad-bottom-right-color: rgb(255, 180, 0);
 $gamepad-main-color: black;
 $control-pad-color: rgb(88, 88, 88);
-$primary-color:black;
+$primary-color: black;
 $header-font-color: white;
-$secondary-font-color:white;
+$secondary-font-color: white;
 $start-button-color: black;
-$gamepad-diameter: 500px;
+$gamepad-diameter: 35vw;
+$gamepad-diameter-mobile: 90vw;
 $pad-button-position: 8%;
+$header-font-size: 48px;
 
 %pad-common {
-    background: $header-font-color;
-    width: 40%;
-    height: 40%;
-    position: absolute;
+  background: $header-font-color;
+  width: 40%;
+  height: 40%;
+  position: absolute;
 }
 
-@mixin center-object($value, $value2) {
-    top: $gamepad-diameter * $value;
-    bottom: $gamepad-diameter * $value;
-    left: $gamepad-diameter * $value2;
-    right: $gamepad-diameter * $value2;
-    position: absolute;
+%btn-common {
+  border-radius: 0.12em;
+  text-decoration: none;
+  font-weight: 600;
+  color: $secondary-font-color;
+  text-align: center;
+  transition: all 0.2s;
+  width: 15em;
+  height: 5em;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $primary-color;
+    background-color: $secondary-font-color;
+    cursor: pointer;
+  }
+}
+
+@mixin center-object($diameter, $value, $value2) {
+  top: $diameter * $value;
+  bottom: $diameter * $value;
+  left: $diameter * $value2;
+  right: $diameter * $value2;
+  position: absolute;
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-
 
 body {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+  font-family: "Roboto", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: $background-color;
 }
 main {
-    // height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "btn-section-one gamepad-wrapper btn-section-two";
 
-header {
-    position: absolute;
-    top: 0;
-    background: $primary-color;
-    min-width: 100vw;
-}
-
-h1 {
-    text-transform: uppercase;
-    text-align: center;
-    color: $header-font-color;
-}
-
-#gamepad-wrapper {
-    min-width: $gamepad-diameter;
-    min-height: $gamepad-diameter;
+  #gamepad-wrapper {
+    margin: 0 auto;
+    align-self: center;
+    grid-area: gamepad-wrapper;
+    width: $gamepad-diameter;
+    height: $gamepad-diameter;
     background: $gamepad-main-color;
     border-radius: 50%;
     position: relative;
+  }
+
+  button {
+    @extend %btn-common;
+  }
+  #btn-section-one {
+    grid-area: btn-section-one;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6em 3em;
+  }
+
+  #btn-section-two {
+    grid-area: btn-section-two;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6em 3em;
+    button {
+      background: $pad-bottom-left-color;
+      &:hover {
+        background: lighten($pad-bottom-left-color, 20%);
+      }
+    }
+  }
 }
 
+#difficulty-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  h2 {
+    margin: 0 auto;
+  }
+  #btn-container {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    button {
+      @extend %btn-common;
+      font-size: $header-font-size * 0.5;
+      letter-spacing: $header-font-size * 0.07;
+    }
+
+    #btn-easy {
+      background: darken($pad-bottom-left-color, 20%);
+      &:hover {
+        background: $pad-bottom-left-color;
+      }
+    }
+
+    #btn-medium {
+      background: darken($pad-top-left-color, 20%);
+      &:hover {
+        background: $pad-top-left-color;
+      }
+    }
+
+    #btn-hard {
+      background: darken($pad-bottom-right-color, 20%);
+      &:hover {
+        background: $pad-bottom-right-color;
+      }
+    }
+
+    #btn-godmode {
+      background: darken($pad-top-right-color, 20%);
+      &:hover {
+        background: $pad-top-right-color;
+      }
+    }
+  }
+}
+
+header {
+  position: absolute;
+  top: 0;
+  background: $primary-color;
+  min-width: 100vw;
+}
+
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  color: $header-font-color;
+}
+
+h2 {
+  text-transform: uppercase;
+  text-align: center;
+  color: $header-font-color;
+  font-size: $header-font-size;
+  letter-spacing: $header-font-size * 0.1;
+}
 
 #control-pad {
-    @include center-object(0.26, 0.26);
-    background: $control-pad-color;
-    border-radius: 50%;
-    z-index: 1;
+  @include center-object($gamepad-diameter, 0.26, 0.26);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $background-color;
+  border-radius: 50%;
+  z-index: 1;
+
+  p {
+    font-size: $header-font-size * 0.5;
+    color: $header-font-color;
+    text-transform: uppercase;
+  }
 }
 
 #start-button {
-    // all: unset;
-    @include center-object(0.44, 0.38);
-    background: $start-button-color;
-    border-radius: 44%;
-    z-index: 2;
-    color: $secondary-font-color;
-    cursor: pointer;
-    // font-size: 110%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:hover {
-        background: lighten($start-button-color,20%);
-    }
+  background: $start-button-color;
+  z-index: 2;
+  color: $secondary-font-color;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  &:hover {
+    background: lighten($start-button-color, 20%);
+  }
 }
 
 #pad-top-left {
-    @extend %pad-common;
-    background: $pad-top-left-color;
-    top: $pad-button-position;
-    left: $pad-button-position;
-    border-radius: 260px 10px 160px 10px;
+  @extend %pad-common;
+  background: $pad-top-left-color;
+  top: $pad-button-position;
+  left: $pad-button-position;
+  border-radius: 260px 10px 160px 10px;
 }
 
 #pad-top-right {
-    @extend %pad-common;
-    background: $pad-top-right-color;
-    top: $pad-button-position;
-    right: $pad-button-position;
-    border-radius: 10px 260px 10px 160px;
+  @extend %pad-common;
+  background: $pad-top-right-color;
+  top: $pad-button-position;
+  right: $pad-button-position;
+  border-radius: 10px 260px 10px 160px;
 }
 
 #pad-bottom-left {
-    @extend %pad-common;
-    background: $pad-bottom-left-color;
-    bottom:$pad-button-position;
-    left: $pad-button-position;
-    border-radius: 10px 160px 10px 260px;
+  @extend %pad-common;
+  background: $pad-bottom-left-color;
+  bottom: $pad-button-position;
+  left: $pad-button-position;
+  border-radius: 10px 160px 10px 260px;
 }
 
 #pad-bottom-right {
-    @extend %pad-common;
-    background: $pad-bottom-right-color;
-    bottom: $pad-button-position;
-    right: $pad-button-position;
-    border-radius: 160px 10px 260px 10px;
+  @extend %pad-common;
+  background: $pad-bottom-right-color;
+  bottom: $pad-button-position;
+  right: $pad-button-position;
+  border-radius: 160px 10px 260px 10px;
 }
 
 #result {
-    font-weight: 600;
-    text-transform: uppercase;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 768px) {
+  %btn-common {
+    width: 10em;
+    height: 4em;
+  }
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 5fr 1fr 1fr;
+    grid-template-areas:
+      "gamepad-wrapper"
+      "btn-section-one"
+      "btn-section-two";
+
+    #btn-section-one {
+      padding: 0;
+      padding-top: 3em;
+    }
+    #btn-section-two {
+      padding: 0 3em;
+    }
+  }
+
+  #gamepad-wrapper {
+    min-width: $gamepad-diameter-mobile;
+    min-height: $gamepad-diameter-mobile;
+  }
+
+  #control-pad {
+    @include center-object($gamepad-diameter-mobile, 0.26, 0.26);
+  }
+
+  #btn-container {
+    flex-direction: column;
+    min-height: 60%;
+  }
 }
