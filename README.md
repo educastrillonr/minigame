@@ -8,7 +8,7 @@ This is a minigame I have created to add features I want to practice. These feat
  - Sound for accuracy
  - Flashing colors when winning
  - Database of highest scorers (looking into local storage)
- - Share on twitter button
+ - Share on twitter button<br>
    +Godmode includes increased speed and colours changing position
    
 ## Technologies used so far
