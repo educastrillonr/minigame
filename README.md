@@ -16,6 +16,7 @@ This repo was started on week 2 of a coding course. The intention is to practice
 
   - HTML5
   - SCSS
+  - JavaScript
   - jQuery
 
 ## To-Do
